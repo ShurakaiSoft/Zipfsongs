@@ -14,7 +14,9 @@ var zipfs = require('./zipfs');
 describe('Module zipfs', function () {
 	var input1, input2, input3,
 		output1, output2, output3;
+
 	beforeEach(function () {
+		// simple test data
 		input1 = {
 			selectCount: 2,
 			songs: [
@@ -36,6 +38,13 @@ describe('Module zipfs', function () {
 				}
 			]
 		};
+		output1 = [
+			'four',
+			'two'
+		];
+
+
+		// more complex test data
 		input2 = {
 			selectCount: 3,
 			songs: [
@@ -101,6 +110,13 @@ describe('Module zipfs', function () {
 				}
 			]
 		};
+		output2 = [
+			'19_2000',
+			'clint_eastwood',
+			'tomorrow_comes_today'
+		];
+
+		// testdata to validate second level of sorting
 		input3 = {
 			selectCount: 2,
 			songs: [
@@ -114,15 +130,6 @@ describe('Module zipfs', function () {
 				}
 			]
 		};
-		output1 = [
-			'four',
-			'two'
-		];
-		output2 = [
-			'19_2000',
-			'clint_eastwood',
-			'tomorrow_comes_today'
-		];
 		output3 = [
 			'ichiban',
 			'niban'
