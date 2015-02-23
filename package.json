@@ -1,12 +1,12 @@
 {
 	"name": "zipfs",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"author": "Stephen Parker <shurakaisoft@gmail.com>",
 	"description": "A coding exercise for an interview",
 	"scripts": {
 		"test": "node_modules/mocha/bin/mocha zipfs.spec.js"
 	},
-	"main": "./server.js",
+	"main": "zipfs.js",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/shurakaisoft/..."
