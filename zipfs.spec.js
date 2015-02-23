@@ -12,7 +12,8 @@ var zipfs = require('./zipfs');
 
 
 describe('Module zipfs', function () {
-	var input1, input2, output1, output2;
+	var input1, input2, input3,
+		output1, output2, output3;
 	beforeEach(function () {
 		input1 = {
 			selectCount: 2,
@@ -99,7 +100,20 @@ describe('Module zipfs', function () {
 					name: 'm1_a1'
 				}
 			]
-		}
+		};
+		input3 = {
+			selectCount: 2,
+			songs: [
+				{
+					listenCount: 20,
+					name: 'ichiban'
+				},
+				{
+					listenCount: 10,
+					name: 'niban'
+				}
+			]
+		};
 		output1 = [
 			'four',
 			'two'
@@ -108,6 +122,10 @@ describe('Module zipfs', function () {
 			'19_2000',
 			'clint_eastwood',
 			'tomorrow_comes_today'
+		];
+		output3 = [
+			'ichiban',
+			'niban'
 		];
 
 	});
@@ -122,11 +140,14 @@ describe('Module zipfs', function () {
 	});
 
 	it('should return the correct songs', function () {
+		// should for some reason is not doing deepEqual, so using assert...
 		assert.deepEqual(zipfs.run(input1), output1);
-		// zipfs.run(input1).should.equal(output1);
-
+		// zipfs.run(input1).should.deepEqual(output1);
 	});
 	it('should also return the correct songs', function () {
 		assert.deepEqual(zipfs.run(input2), output2);
+	});
+	it('shoudl also use the original order for as a tiebreaker', function () {
+		assert.deepEqual(zipfs.run(input3), output3);
 	});
 });
